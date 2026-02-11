@@ -1,255 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spacebar Clicker - Blast Off!</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Orbitron', monospace;
-            height: 100vh;
-            overflow: hidden;
-            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-            position: relative;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        
-        /* Animated starry background */
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 2s infinite alternate;
-        }
-        
-        @keyframes twinkle {
-            0% { opacity: 0.3; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.5); }
-        }
-        
-        /* Logo */
-        .logo {
-            font-size: 3.5rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #00f5ff, #ff00ff, #ffff00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 20px #00f5ff); }
-            to { filter: drop-shadow(0 0 40px #ff00ff); }
-        }
-        
-        /* Counter */
-        #counter {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-        
-        .hits {
-            font-size: 4rem;
-            color: #00ff88;
-            text-shadow: 0 0 20px #00ff88;
-            animation: pulse 0.5s ease-in-out;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-        
-        /* Instructions */
-        .instructions {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-        }
-        
-        /* Restart button */
-        .restart {
-            background: linear-gradient(45deg, #ff00ff, #00f5ff);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            font-family: 'Orbitron', monospace;
-            font-weight: 700;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .restart:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 245, 255, 0.6);
-        }
-        
-        /* Spacebar visual */
-        .spacebar {
-            font-size: 5rem;
-            margin: 1rem 0;
-            opacity: 0.3;
-            animation: bounce 1s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-        
-        /* Particles effect */
-        .particles {
-            position: absolute;
-            pointer-events: none;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .particle {
-            position: absolute;
-            background: #00ff88;
-            border-radius: 50%;
-            pointer-events: none;
-            animation: explode 1s ease-out forwards;
-        }
-        
-        @keyframes explode {
-            0% {
-                opacity: 1;
-                transform: scale(0) translateY(0);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(1) translateY(-100px);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ToolBox - Free Online Productivity Tools</title>
+<meta name="description" content="ToolBox offers free online tools like Image Compressor, PDF Converter, GST Calculator, EMI Calculator and more. Fast, secure and easy to use.">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(90deg,#8e2de2,#ff416c);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #8e2de2;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.card a:hover {
+    background: #5f1abf;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer a {
+    color: #ff416c;
+    text-decoration: none;
+}
+</style>
 </head>
+
 <body>
-    <!-- Stars background -->
-    <div class="stars" id="stars"></div>
-    
-    <!-- Particles -->
-    <div class="particles" id="particles"></div>
-    
-    <div class="logo">🚀 SPACEBAR CLICKER</div>
-    
-    <div id="spacebar-visual" class="spacebar">SPACEBAR</div>
-    
-    <h1 id="counter">You have hit the spacebar <span class="hits">0</span> times!</h1>
-    
-    <p class="instructions">Press SPACEBAR to launch into hyperspace! 🌌</p>
-    
-    <button class="restart" onclick="resetHits()">Restart Mission</button>
 
-    <script>
-        let hits = 0;
-        const hitElement = document.querySelector('.hits');
-        const particlesContainer = document.getElementById('particles');
-        const starsContainer = document.getElementById('stars');
+<header>
+    <h1>ToolBox</h1>
+    <p>Your All-in-One Free Online Productivity Tools</p>
+</header>
 
-        // Create stars
-        function createStars() {
-            for (let i = 0; i < 100; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.width = star.style.height = (Math.random() * 3 + 1) + 'px';
-                star.style.animationDelay = Math.random() * 2 + 's';
-                starsContainer.appendChild(star);
-            }
-        }
+<div class="container">
 
-        // Create particles explosion
-        function createParticles(x, y) {
-            for (let i = 0; i < 12; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = x + 'px';
-                particle.style.top = y + 'px';
-                particle.style.width = particle.style.height = Math.random() * 6 + 4 + 'px';
-                const angle = (i / 12) * Math.PI * 2;
-                particle.style.transform = `translate(${Math.cos(angle) * 50}px, ${Math.sin(angle) * 50}px)`;
-                particlesContainer.appendChild(particle);
-                
-                setTimeout(() => particle.remove(), 1000);
-            }
-        }
+<section>
+<h2>About ToolBox</h2>
+<p>
+ToolBox is a free online platform that provides powerful and easy-to-use productivity tools.
+Our mission is to help students, professionals, traders, and businesses complete tasks faster
+without installing any software.
+</p>
 
-        function addHit() {
-            hits++;
-            renderHits();
-            
-            // Particles at center
-            createParticles(window.innerWidth / 2, window.innerHeight / 2);
-        }
+<p>
+All tools are designed to be fast, secure, and user-friendly. We do not store your files on our servers.
+Everything is processed instantly to ensure maximum privacy and safety.
+</p>
+</section>
 
-        function renderHits() {
-            hitElement.textContent = hits.toLocaleString();
-            hitElement.style.animation = 'none';
-            setTimeout(() => {
-                hitElement.style.animation = 'pulse 0.5s ease-in-out';
-            }, 10);
-        }
+<section>
+<h2>Choose Your Tool</h2>
 
-        function resetHits() {
-            hits = 0;
-            renderHits();
-            particlesContainer.innerHTML = '';
-        }
+<div class="tools">
 
-        // Listen for spacebar
-        document.addEventListener('keydown', (e) => {
-            if (e.code === 'Space') {
-                e.preventDefault();
-                addHit();
-            }
-        });
+<div class="card">
+<h3>Image Compressor</h3>
+<p>Reduce image size without losing quality.</p>
+<a href="image-compressor.html">Use Tool</a>
+</div>
 
-        // Prevent spacebar scrolling
-        window.addEventListener('keydown', (e) => {
-            if (e.code === 'Space') {
-                e.preventDefault();
-            }
-        });
+<div class="card">
+<h3>PDF Converter</h3>
+<p>Convert PDF files quickly and easily.</p>
+<a href="pdf-converter.html">Use Tool</a>
+</div>
 
-        // Initialize
-        createStars();
-        renderHits();
-    </script>
+<div class="card">
+<h3>GST Calculator</h3>
+<p>Calculate GST instantly for your business.</p>
+<a href="gst-calculator.html">Use Tool</a>
+</div>
+
+<div class="card">
+<h3>EMI Calculator</h3>
+<p>Calculate loan EMI in seconds.</p>
+<a href="emi-calculator.html">Use Tool</a>
+</div>
+
+<div class="card">
+<h3>Resume Builder</h3>
+<p>Create professional resumes easily.</p>
+<a href="resume-builder.html">Use Tool</a>
+</div>
+
+<div class="card">
+<h3>Trading Calculator</h3>
+<p>Plan your trades with proper risk management.</p>
+<a href="trading-calculator.html">Use Tool</a>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Why Choose ToolBox?</h2>
+<ul>
+<li>100% Free to Use</li>
+<li>No Registration Required</li>
+<li>Secure & Private</li>
+<li>Fast Processing</li>
+<li>Mobile Friendly Design</li>
+</ul>
+</section>
+
+<section>
+<h2>Frequently Asked Questions</h2>
+
+<h4>Is ToolBox free?</h4>
+<p>Yes, all tools are completely free to use.</p>
+
+<h4>Is my data safe?</h4>
+<p>Yes, we do not store your files or personal data.</p>
+
+<h4>Do I need to create an account?</h4>
+<p>No registration is required to use our tools.</p>
+
+</section>
+
+</div>
+
+<footer>
+<p>© 2026 ToolBox | All Rights Reserved</p>
+<p>
+<a href="about.html">About</a> |
+<a href="privacy.html">Privacy Policy</a> |
+<a href="contact.html">Contact</a> |
+<a href="terms.html">Terms</a>
+</p>
+</footer>
+
 </body>
 </html>
